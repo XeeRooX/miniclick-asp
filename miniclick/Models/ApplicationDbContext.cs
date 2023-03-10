@@ -7,7 +7,12 @@ namespace miniclick.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
         }
-
         public DbSet<Url> Urls { get; set; } = null!;
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Url>().HasIndex(u => u.Uuid).IsUnique();
+        }
     }
 }
