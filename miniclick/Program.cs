@@ -9,7 +9,14 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlite(connectionString)
     );
-
+if (builder.Configuration.GetValue<string>("hostname") != null) 
+{
+    if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("HOSTNAME")))
+    {
+        Console.WriteLine("hostname: "+ Environment.GetEnvironmentVariable("HOSTNAME"));
+        builder.Configuration["hostname"] = Environment.GetEnvironmentVariable("HOSTNAME");
+    }
+}
 var app = builder.Build();
 app.UseStaticFiles();
 app.UseDefaultFiles();
@@ -33,7 +40,7 @@ app.MapGet("/{uuid:length(8)}", async (ApplicationDbContext db, HttpContext cont
         await Results.Redirect(url.Link).ExecuteAsync(context);
 });
 
-app.MapPost("/", async (ApplicationDbContext db, HttpContext context, [FromBody] UrlDto url ) => {
+app.MapPost("/", async (ApplicationDbContext db, HttpContext context, [FromBody] UrlDto url, IConfiguration conf ) => {
     if(url.Url == null)
     {
         await Results.BadRequest(new { message = "Incorrent parametr"}).ExecuteAsync(context);
@@ -60,7 +67,7 @@ app.MapPost("/", async (ApplicationDbContext db, HttpContext context, [FromBody]
     await db.Urls.AddAsync(generatedUrl!);
     await db.SaveChangesAsync();
 
-    await Results.Json(new { uuid = uuid }).ExecuteAsync(context);
+    await Results.Json(new { url = "https://"+conf.GetValue<string>("hostname")+"/"+generatedUrl!.Uuid}).ExecuteAsync(context);
 });
 
 app.Run();

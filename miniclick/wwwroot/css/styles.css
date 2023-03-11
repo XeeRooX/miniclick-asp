@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;500&display=swap');
+
+.nav-bg-color{
+    background-color: #222823;
+    
+}
+
+.parent-center{
+    width: 100vw;
+    min-height: calc(100vh - 76px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.child-center {
+    background-color: #E6E8E6;   
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.input-style{
+    width: 60%;
+}
+  
+.block-down{
+    width: 100%;
+    background-color: #4e556c;
+    color: #f6f8fc;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.generated-input{
+    width: 50%;
+}
+
+.col-butt{
+    background-color: #6c757d;
+    color: #fcfffc;
+}
+
+body{
+    font-family: 'Jost', sans-serif;
+}
+

@@ -1,10 +1,49 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Click</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h2>Hello</h2>
+    <nav class="navbar navbar-light nav-bg-color mx-auto">
+        <div class="container">
+          <a class="navbar-brand p-0" href="#">
+            <img src="imgs/logo.png" alt="" width="60px">
+          </a>
+        </div>
+    </nav>
+    <div class="container parent-center">
+        <div>
+            <div class="child-center p-4" >
+                <div class="text-center">
+                    <h2>Mini Click - сервис для сокращения ссылок</h2> 
+                    <p>С помощью нашего бесплатного и универсального сервиса сокращения URL Вы можете сделать из длинной ссылки короткую, или просто - сократить или укоротить ссылку.</p>
+                </div>
+                <div class="mx-auto">
+                    <div class="input-group mb-3 input-style mx-auto">
+                        <input type="text" id="link-input" class="form-control input-style" placeholder="Введите ссылку"  aria-describedby="cut-button">
+                        <button class="btn btn-outline-secondary col-butt" type="button" id="cut-button" >Сократить</button>
+                </div>
+            </div>
+        </div>
+            <div class="block-down p-4 text-center">
+                <h3>Результат генерации</h3>
+                <div class="mx-auto">
+                    <div class="input-group mb-3 input-style mx-auto py-3 generated-input">
+                        <input type="text" id="generated-link" class="form-control " placeholder="Здесь пока ничего нет ¯\_(ツ)_/¯"  aria-describedby="copy-link" readonly>
+                        <button class="btn btn-outline-secondary px-2 " type="button" id="copy-link" style="background-color: #e6e8e6;">
+                            <img src="imgs/copy.png" alt="copy" style="width: 25px;" class="p-0 g-0">
+                        </button>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

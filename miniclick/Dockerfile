@@ -5,6 +5,8 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+
+
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["miniclick/miniclick.csproj", "miniclick/"]
@@ -13,10 +15,12 @@ COPY . .
 WORKDIR "/src/miniclick"
 RUN dotnet build "miniclick.csproj" -c Release -o /app/build
 
+
 FROM build AS publish
 RUN dotnet publish "miniclick.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+ENV HOSTNAME="127.0.0.1:5001"
 ENTRYPOINT ["dotnet", "miniclick.dll"]
