@@ -20,10 +20,7 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
-      "httpPort": 5000,
-      "sslPort": 5001,
-      "publishAllPorts": true,
-      "useSSL": true
+      "publishAllPorts": true
     }
   },
   "iisSettings": {
@@ -31,7 +28,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:41736",
-      "sslPort": 44362
+      "sslPort": 0
     }
   }
 }
