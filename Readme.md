@@ -4,7 +4,7 @@
 Для запуска Docker контейнера используйте следующие команды:
 ```
 git clone https://github.com/XeeRooX/miniclick-asp.git
-cd ./miniclick
+cd ./miniclick-asp
 docker compose up
 ```
 Далее в браузере перейдите по следующему адресу:
