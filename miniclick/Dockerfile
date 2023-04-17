@@ -5,8 +5,8 @@ WORKDIR /app
 EXPOSE 80
 
 # Настройка имени хоста
-ARG VAR_HOSTNAME=127.0.0.1:5000
-ENV MY_HOSTNAME=${VAR_HOSTNAME}
+#ARG VAR_HOSTNAME=127.0.0.1:5000
+#ENV MY_HOSTNAME=${VAR_HOSTNAME}
 
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
