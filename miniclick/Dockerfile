@@ -24,7 +24,7 @@ RUN dotnet publish "miniclick.csproj" -c Release -o /app/publish /p:UseAppHost=f
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+RUN mkdir -p /app/Data
 
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "miniclick.dll"]
-RUN dotnet ef database update

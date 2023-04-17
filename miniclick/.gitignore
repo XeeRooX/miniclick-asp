@@ -1,1 +1,3 @@
-/Data
+/Data/mydb.db
+/Data/mydb.db-shm
+/Data/mydb.db-wal

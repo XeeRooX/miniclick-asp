@@ -13,6 +13,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+using (var context = scope.ServiceProvider.GetService<ApplicationDbContext>())
+{
+    context!.Database.Migrate();
+}
+
 app.UseStaticFiles();
 app.UseDefaultFiles();
 
